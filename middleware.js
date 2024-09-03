@@ -5,13 +5,14 @@ export async function middleware(request) {
   console.log("🚀 ~ hostname:", hostname);
   console.log("🚀 ~ pathname dpkg:", pathname);
   console.log("🚀 ~ pathname dpkg:", pathname.startsWith("/go"));
+  console.log("🚀 ~ /user1${pathname}:", `/user1${pathname}`);
 
   if (
     hostname !== "localhost" &&
     hostname !== "rewrites-tailwind-custom-domain.vercel.app" &&
-    pathname == "/"
+    (pathname == "/" || pathname.includes("ticket"))
   ) {
-    return NextResponse.rewrite(new URL(`/user1`, request.url));
+    return NextResponse.rewrite(new URL(`/user1${pathname}`, request.url));
   } else if (pathname.startsWith("/go")) {
     return NextResponse.rewrite(new URL(`/user2`, request.url));
   } else {
