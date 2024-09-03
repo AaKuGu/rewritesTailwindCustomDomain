@@ -10,7 +10,7 @@ export async function middleware(request) {
     hostname !== "localhost" &&
     hostname !== "rewrites-tailwind-custom-domain.vercel.app"
   ) {
-    if (pathname.startsWith("/")) {
+    if (pathname.startsWith("/dss")) {
       return NextResponse.rewrite(new URL(`/user2`, request.url));
     }
     // return NextResponse.rewrite(new URL(`/user1`, request.url));
