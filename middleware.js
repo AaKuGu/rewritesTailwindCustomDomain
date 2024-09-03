@@ -10,6 +10,9 @@ export async function middleware(request) {
     hostname !== "localhost" &&
     hostname !== "rewrites-tailwind-custom-domain.vercel.app"
   ) {
+    if (pathname.startsWith("/")) {
+      return NextResponse.rewrite(new URL(`/user1`, request.url));
+    }
     return NextResponse.rewrite(new URL(`/user1`, request.url));
   } else if (pathname.startsWith("/go")) {
     return NextResponse.rewrite(new URL(`/user1`, request.url));
