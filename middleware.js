@@ -13,7 +13,7 @@ export async function middleware(request) {
     if (pathname.startsWith("/")) {
       return NextResponse.rewrite(new URL(`/user1`, request.url));
     }
-    return NextResponse.rewrite(new URL(`/user1`, request.url));
+    // return NextResponse.rewrite(new URL(`/user1`, request.url));
   } else if (pathname.startsWith("/go")) {
     return NextResponse.rewrite(new URL(`/user1`, request.url));
   } else {
