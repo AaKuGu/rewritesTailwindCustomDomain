@@ -14,7 +14,7 @@ export async function middleware(request) {
   ) {
     return NextResponse.rewrite(new URL(`/user1${pathname}`, request.url));
   } else if (pathname.startsWith("/go")) {
-    return NextResponse.rewrite(new URL(`/user2`, request.url));
+    return NextResponse.rewrite(new URL(`/user1`, request.url));
   } else {
     return NextResponse.next();
   }
